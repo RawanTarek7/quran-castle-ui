@@ -1,0 +1,37 @@
+.feature-cards-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding-bottom: 30px;
+    gap: 5px;
+}
+
+.feature-card {
+    width: 210px;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    border-color: goldenrod;
+    box-shadow: 5px 10px 30px rgba(255, 217, 0, 0.336);
+}
+
+.feature-icon-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid goldenrod;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}

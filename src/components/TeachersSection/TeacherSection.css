@@ -1,0 +1,41 @@
+/* TeacherSection.css */
+.teacher-section-content {
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(20px); /* Start with a slight translation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition animation */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.teacher-section-content.show {
+    opacity: 1; /* Apply full opacity */
+    transform: translateY(0); /* Apply no translation */
+}
+
+
+.teacher-card:hover {
+    box-shadow: 5px 8px 8px rgba(255, 217, 0, 0.726);
+    cursor: pointer;
+}
+
+.teacher-card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 350px;
+    padding: 0;
+    min-height: 300px;
+    border-radius: 20px;
+}
+
+.centered-card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}

@@ -1,0 +1,34 @@
+.teacher-section {
+    text-align: center;
+}
+
+.teacher-profile {
+    margin: 20px;
+}
+
+.teacher-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid goldenrod
+}
+
+.teacher-name {
+    margin-top: 10px;
+    font-size: 1.25rem;
+}
+
+.teacher-description {
+    margin-top: 10px;
+}
+
+.teachers-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.first-column {
+    margin-top: 100px;
+    margin-right: 100px;
+}

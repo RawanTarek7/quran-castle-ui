@@ -1,19 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {ThemeProvider, CssBaseline, createTheme} from '@mui/material';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './assets/fonts/EBGaramond-Regular.ttf';
+import './assets/fonts/EBGaramond-Bold.ttf';
+
+import './index.css';
+
+// Create a custom theme with the custom font
+const theme = createTheme({
+    typography: {
+        fontFamily: 'EBGaramond-bold , sans-serif', // Use your custom font here
+    },
+});
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <React.StrictMode>
+            <App/>
+        </React.StrictMode>
+    </ThemeProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

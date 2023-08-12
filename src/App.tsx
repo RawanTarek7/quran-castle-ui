@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Auth from "./pages/Auth/Auth";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Plans from "./pages/Plans/Plans";
+import Layout from "./pages/Layout/Layout";
+import RegisterTrial from "./pages/Auth/Components/RegisterTrialClass";
+import Videos from "./pages/Videos/Videos";
+import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
+import UserProfile from "./pages/Profile/UserProfile/UserProfile";
+import TeacherProfileCard from "./pages/Profile/TeacherProfile/TeacherProfile";
+import './index.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    return (
+        <Router>
+            <Layout>
+                <Switch>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/home" exact component={Home}/>
+                    <Route path="/about-us" exact component={About}/>
+                    <Route path="/auth" exact component={Auth}/>
+                    <Route path="/trialRegister" exact component={RegisterTrial}/>
+                    <Route path="/videos" exact component={Videos}/>
+                    <Route path="/plans" exact component={Plans}/>
+                    <Route path="/teacher-profile" exact component={TeacherProfileCard}/>
+                    <Route path="/user-profile" exact component={UserProfile}/>
+                    <Route path="/plans" exact component={Plans}/>
+                    <Route path="/forget-password" exact component={Auth}/>
+                    <Route path="/terms-conditions" exact component={TermsAndConditions}/>
+                    <Route component={NotFoundPage}/>
+                </Switch>
+            </Layout>
+
+        </Router>
+    );
+};
 
 export default App;
