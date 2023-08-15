@@ -6,8 +6,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import {styled} from '@mui/system';
 
 const StyledFooter = styled('footer')(({theme}) => ({
-    backgroundColor: 'black',
-    color: 'white',
+    backgroundColor: 'white',
+    color: 'black',
     padding: theme.spacing(5, 0), // Adjust padding
 }));
 
@@ -18,7 +18,7 @@ const FooterContent = styled(Box)(({theme}) => ({
     alignItems: 'center',
 
     paddingBottom: '25px',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     [theme.breakpoints.up('md')]: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -41,7 +41,7 @@ function Copyright(props: any) {
             <Link underline='none' color="inherit" href="/">
                 Quran Castle
             </Link>
-            {'  '}{new Date().getFullYear()}
+            {'  '}{new Date().getFullYear()}{' '}All Rights Reserved
         </Typography>
     );
 }
@@ -54,8 +54,9 @@ const Footer: React.FC = () => {
                 <FooterContent>
                     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                         <Link underline='none' href="/about-us" color="inherit">About Us</Link>
-                        <Link underline='none' href="/" color="inherit">Contact Us</Link>
-                        <Link underline='none' href="/about-us" color="inherit">Our Teachers</Link>
+                        <Link underline='none' href="/about-teachers" color="inherit">About Teachers</Link>
+                        <Link underline='none' href="/terms-conditions" color="inherit">Terms And Conditions</Link>
+
                     </div>
                     <div>
                         <Typography style={{marginBottom: '15px', textAlign: 'center'}} variant="h6">Contact
@@ -82,7 +83,7 @@ const Footer: React.FC = () => {
                 </FooterContent>
 
             </StyledFooter>
-            <div style={{display: 'flex', backgroundColor: '#D6D7CF72', padding: '20px'}}>
+            <div style={{display: 'flex', justifyContent:'end',backgroundColor: 'white', padding: '25px'}}>
                 <Copyright/>
             </div>
         </div>
