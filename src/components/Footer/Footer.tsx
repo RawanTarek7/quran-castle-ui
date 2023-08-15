@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
         <div>
             <StyledFooter>
                 <FooterContent>
-                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px' ,textAlign:"center"}}>
                         <Link underline='none' href="/about-us" color="inherit">About Us</Link>
                         <Link underline='none' href="/about-teachers" color="inherit">About Teachers</Link>
                         <Link underline='none' href="/terms-conditions" color="inherit">Terms And Conditions</Link>
