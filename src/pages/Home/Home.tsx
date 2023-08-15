@@ -3,7 +3,6 @@ import './Home.css';
 import Hero from '../../components/Hero/Hero';
 import AboutSection from '../../components/AboutSection/AboutSection';
 import ContactUs from '../../components/ContactUs/ContactUS';
-import TeacherSection from '../../components/TeachersSection/TeacherSection';
 import {Typography, Box} from '@mui/material'; // Import Box component for applying responsive styles
 import Features from '../Features/Features';
 import Plans from "../Plans/Plans";

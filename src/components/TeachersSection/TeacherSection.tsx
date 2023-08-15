@@ -43,7 +43,7 @@ const TeacherSection = () => {
     }, []);
 
     return (
-        <div style={{height:'100vh'}} className={`teacher-section-content ${contentVisible ? 'show' : ''}`}>
+        <div style={{minHeight:'100vh'}} className={`teacher-section-content ${contentVisible ? 'show' : ''}`}>
            <Typography variant='h3'>About Our Teachers</Typography>
             <div className="centered-card-container">
                 {teacherData.map((teacher, index) => (

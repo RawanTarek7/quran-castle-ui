@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AppBar, Toolbar, Box, Link} from '@mui/material';
+import {AppBar, Toolbar, Box, Link, Hidden} from '@mui/material';
 import {useHistory} from 'react-router-dom';
 import {GlobalButton} from '../../assets/styles/GlobalButton';
 
@@ -10,9 +10,8 @@ const Header = () => {
     const [prevScrollY, setPrevScrollY] = useState(0);
 
     const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
-setIsLogged(false)
+        setIsLogged(false);
     };
-
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
@@ -64,58 +63,90 @@ setIsLogged(false)
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',
-                    gap: '25px',
+                    gap: '15px',
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <Link sx={{
-                        color: 'goldenrod',
-                        '&:hover': {
-                            textDecoration: 'underline'
-                        }
-                    }} underline='none' href="/user-profile">
+                    <Link
+                        sx={{
+                            color: 'goldenrod',
+                            '&:hover': {
+                                textDecoration: 'underline',
+                            },
+                        }}
+                        underline="none"
+                        href="/user-profile"
+                    >
                         Profile
                     </Link>
-                    <Link sx={{
-                        color: 'goldenrod',
-                        '&:hover': {
-                            textDecoration: 'underline'
-                        }
-                    }} underline='none' href="/plans">
+                    <Link
+                        sx={{
+                            color: 'goldenrod',
+                            '&:hover': {
+                                textDecoration: 'underline',
+                            },
+                        }}
+                        underline="none"
+                        href="/plans"
+                    >
                         Plans
                     </Link>
-                    <Link sx={{
-                        color: 'goldenrod',
-                        '&:hover': {
-                            textDecoration: 'underline'
-                        }
-                    }} underline='none' href="/about-teachers">
-                        About Teachers
+                    <Link
+                        sx={{
+                            color: 'goldenrod',
+                            marginRight: '20px',
+                            '&:hover': {
+                                textDecoration: 'underline',
+                            },
+                        }}
+                        underline="none"
+                        href="/about-teachers"
+                    >
+                        Teachers
                     </Link>
-
                 </div>
 
-
-                {isLogged ? (
-
-                      <div style={{display:'flex',flexDirection:'row'}}>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                    {isLogged ? (
                         <img
-                        onClick={handleAvatarClick}
-                        style={{marginLeft: '15px', marginRight: '15px', cursor: 'pointer'}}
-                        src={process.env.PUBLIC_URL + '/images/logout.png'}
-                        height='35px'
-                        alt="Exit"
-                    />
-                      </div>
+                            onClick={handleAvatarClick}
+                            style={{
+                                marginLeft: '15px',
+                                marginRight: '15px',
+                                cursor: 'pointer',
+                                height: '35px',
+                                width: '35px'
+                            }}
+                            src={process.env.PUBLIC_URL + '/images/logout.png'}
+                            alt="Exit"
+                        />
                     ) : (
-                    <div style={{display: 'flex', flexDirection: 'row', gap: '20px', marginLeft: '25px'}}>
-                <GlobalButton onClick={() => history.push('/auth')}>Sign In</GlobalButton>
-            </div>
-            )}
-        </Toolbar>
-</AppBar>
-)
-    ;
+                        <div>
+                            <Hidden mdUp>
+                                <img
+                                    onClick={() => history.push('/auth')} style={{
+                                    marginLeft: '15px',
+                                    marginRight: '15px',
+                                    cursor: 'pointer',
+                                    height: '35px',
+                                    width: '35px'
+                                }}
+                                    src={process.env.PUBLIC_URL + '/images/login.png'}
+                                    alt="login"
+                                />
+                            </Hidden>
+                            <Hidden mdDown>
+                                <GlobalButton onClick={() => history.push('/auth')}>Sign In
+                                </GlobalButton>
+                            </Hidden>
+                        </div>
+                    )}
+                </div>
+            </Toolbar>
+        </AppBar>
+    )
+        ;
 };
 
 export default Header;
+
