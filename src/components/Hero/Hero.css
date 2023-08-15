@@ -7,18 +7,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../../public/images/hero-img.jpeg');
-    position: relative;
     z-index: 0;
 }
 
 /* Header Heading */
 .header-heading {
-    color: #fff !important;
     text-align: start;
     position: absolute;
     justify-content: start;
     padding: 35px;
     top: 150px;
+    color: black;
 }
 
 /* Header Buttons */
@@ -37,15 +36,14 @@
     align-items: center;
     font-size: 1.4rem;
     background-color: gold;
+    /*background-color: rgba(255, 255, 255, 0.47);*/
     box-shadow: 5px 10px 30px rgba(255, 217, 0, 0.336);
     border-radius: 50px;
-    color: #ffffff;
 }
 
 .header-btn:hover {
     background-color: transparent;
     transition: all ease 0.5s;
-    color: #ffffff;
     border: 2px solid rgba(255, 215, 0, 0.32);
 }
 
@@ -56,8 +54,6 @@
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    /*background-image: url('./images/banner.jpeg');*/
-    position: relative;
     z-index: 0;
 }
 

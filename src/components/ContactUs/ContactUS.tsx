@@ -33,13 +33,20 @@ const ContactUs: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Container maxWidth="md" sx={{paddingTop: '40px', paddingBottom: '60px'}}>
+            <Container maxWidth="md" sx={{
+                paddingTop: '40px', paddingBottom: '60px',
+            }}>
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <Typography style={{color: 'black', marginBottom: '75px'}} variant="h4" gutterBottom>
+                    <Typography style={{color: 'black', marginBottom: '75px'}} variant="h3" gutterBottom>
                         Contact Us
                     </Typography>
                 </div>
-                <Grid container spacing={2}>
+                <Grid style={{
+                    boxShadow: '5px 10px 30px rgba(252, 251, 246, 0.47)',
+                    padding: '35px',
+                    backgroundColor: 'rgba(252,251,246,0.68)',borderRadius:'25px'
+                }} container
+                      spacing={2}>
                     <Grid item xs={12} sm={6}>
                         <TextField
                             label="Name"

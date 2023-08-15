@@ -18,7 +18,11 @@ const LayoutRoot = styled('div')(({ theme }: { theme: Theme }) => ({
 
 const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
     return (
-        <div>
+        <div style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center', // Center the background image
+        }}>
             <CssBaseline />
             <Header />
             <LayoutRoot>{children}</LayoutRoot>

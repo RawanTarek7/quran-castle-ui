@@ -27,8 +27,8 @@ const NotFoundPage: React.FC = () => {
             /> <Typography variant="h6" color="textSecondary" gutterBottom>
             Oops! The page you are looking for doesn't exist.
         </Typography>
-            <GlobalButton autoFocus onClick={RedirectToHome}
-                          color="primary" sx={{marginTop: '16px', width: '200px', cursor: 'pointer'}}>
+            <GlobalButton onClick={RedirectToHome}
+                          sx={{marginTop: '16px', width: '200px', cursor: 'pointer'}}>
                 Home
             </GlobalButton>
         </Box>

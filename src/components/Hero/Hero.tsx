@@ -11,10 +11,14 @@ const HeroLayoutRoot = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'start',
+    paddingLeft: '0',
+
     [theme.breakpoints.up('sm')]: {
-        height: '70vh',
+        height: '100vh',
         minHeight: 500,
         maxHeight: 1300,
+        paddingLeft: '30px',
+
     },
 }));
 
@@ -37,18 +41,6 @@ interface HeroLayoutProps {
 const HeroLayout: React.FC<HeroLayoutProps> = ({sxBackground, children}) => {
     return (
         <HeroLayoutRoot>
-            <div
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    backgroundColor: 'black',
-                    opacity: 0.5,
-                    zIndex: -1,
-                }}
-            />
             <Background sx={sxBackground}/>
             {children}
         </HeroLayoutRoot>
@@ -61,6 +53,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({startTrialSession}) => {
     const history = useHistory();
+
     const slideUp = useSpring({
         transform: 'translateY(0)',
         from: {transform: 'translateY(100px)'},
@@ -81,26 +74,34 @@ const Hero: React.FC<HeroProps> = ({startTrialSession}) => {
         >
             <div className="header-heading">
                 <animated.div style={slideUp}>
-                    <div style={{paddingLeft:'35px'}}>
-                        <Typography variant="h2">
-                            <strong> Quran With Us</strong>{' '}
-                        </Typography>
-                        <Typography style={{marginTop: '20px'}} color="inherit" variant="h6">
-                            <strong> Plans starting from 48 EGP per month</strong>{' '}
+                    <div
+                        style={{
+                            color: 'black',
+                            backgroundColor: '#FFFFFF77',
+                            borderRadius: '25px',
+                            padding: '27px',
+                        }}
+                    >
+                        <Typography variant="h3">
+                            <strong> Quran With Us</strong>
                         </Typography>
                         <Typography
-                            color="inherit"
-                            style={{marginTop: '20px'}}
+                            style={{marginTop: '15px', color: 'black', fontWeight: '600'}}
                             variant="h6"
-                            sx={{mb: 4, mt: {xs: 4, sm: 10}}}
                         >
-                            Join us on a transformative journey of learning and spiritual growth of Quran.{' '}
+                            <strong> Plans starting from 48 EGP per month</strong>
                         </Typography>
-                    <GlobalButton color="primary" onClick={handleTrialSessionClick}>
-                        Trial Session
-                    </GlobalButton>
+                        <Typography
+                            style={{marginTop: '10px', color: 'black'}}
+                            variant="h6"
+                            sx={{mb: 4, mt: {xs: 2, sm: 4}}}
+                        >
+                            Join us for transformative Quranic learning and growth{' '}
+                        </Typography>
+                        <GlobalButton color="primary" sx={{marginTop: '0'}} onClick={handleTrialSessionClick}>
+                            Trial Session
+                        </GlobalButton>
                     </div>
-
                 </animated.div>
             </div>
         </HeroLayout>

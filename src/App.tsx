@@ -12,6 +12,7 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import UserProfile from "./pages/Profile/UserProfile/UserProfile";
 import TeacherProfileCard from "./pages/Profile/TeacherProfile/TeacherProfile";
 import './index.css'
+import TeacherSection from "./components/TeachersSection/TeacherSection";
 
 const App = () => {
 
@@ -22,13 +23,13 @@ const App = () => {
                     <Route path="/" exact component={Home}/>
                     <Route path="/home" exact component={Home}/>
                     <Route path="/about-us" exact component={About}/>
+                    <Route path="/about-teachers" exact component={TeacherSection}/>
                     <Route path="/auth" exact component={Auth}/>
                     <Route path="/trialRegister" exact component={RegisterTrial}/>
                     <Route path="/videos" exact component={Videos}/>
                     <Route path="/plans" exact component={Plans}/>
                     <Route path="/teacher-profile" exact component={TeacherProfileCard}/>
                     <Route path="/user-profile" exact component={UserProfile}/>
-                    <Route path="/plans" exact component={Plans}/>
                     <Route path="/forget-password" exact component={Auth}/>
                     <Route path="/terms-conditions" exact component={TermsAndConditions}/>
                     <Route component={NotFoundPage}/>

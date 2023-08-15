@@ -1,19 +1,20 @@
-/* TeacherSection.css */
 .teacher-section-content {
-    opacity: 0; /* Start with opacity 0 */
-    transform: translateY(20px); /* Start with a slight translation */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Apply transition animation */
+    opacity: 0;
+    transform: translateY(20px);
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
+    padding-top: 50px;
+    text-align: center;
     align-content: center;
     flex-direction: column;
     gap: 50px;
 
 }
 
+
 .teacher-section-content.show {
-    opacity: 1; /* Apply full opacity */
-    transform: translateY(0); /* Apply no translation */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -28,6 +29,7 @@
     align-content: center;
     width: 350px;
     padding: 0;
+    gap: 25px;
     min-height: 300px;
     border-radius: 20px;
 }

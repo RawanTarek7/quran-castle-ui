@@ -12,35 +12,36 @@ import Box from '@mui/material/Box';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import {GlobalButton} from "../../assets/styles/GlobalButton";
 import {useSpring, animated} from '@react-spring/web';
+import './plans.css'
 
 const tiers = [
     {
-        title: '4 hours plan',
+        title: '4 hours',
         price: '48',
         description: ['2 live classes per week for 30 mins'],
     },
     {
-        title: '6 hours plan',
+        title: '6 hours ',
         price: '72',
         description: ['3 live classes per week for 30 mins'],
     },
     {
-        title: '8 hours plan',
+        title: '8 hours ',
         price: '96',
         description: ['4 live classes per week for 30 mins'],
     },
     {
-        title: '10 hours plan',
+        title: '10 hours ',
         price: '120',
         description: ['5 live classes per week for 30 mins'],
     },
     {
-        title: '12 hours plan',
+        title: '12 hours ',
         price: '144',
         description: ['3 live classes per week for 60 mins'],
     },
     {
-        title: 'Customized plan',
+        title: 'Customized ',
         price: 'Customize',
         description: ['The Plan That suits  you'],
     },
@@ -80,14 +81,6 @@ export default function Pricing() {
 
 
     return (
-
-        <div
-            style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.png)`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center', // Center the background image
-            }}>
-
             <ThemeProvider theme={defaultTheme}>
                 <GlobalStyles styles={{ul: {margin: 0, padding: 0, listStyle: 'none'}}}/>
                 <CssBaseline/>
@@ -96,16 +89,16 @@ export default function Pricing() {
                     <animated.div style={fadeIn}>
 
                         <Typography
-                            component="h1"
-                            variant="h2"
+                            variant="h3"
                             align="center"
                             color="text.primary"
                             gutterBottom
                         >
-                            Choose the plan that’s right for you
+                            Plans
                         </Typography>
                     </animated.div>
                 </Container>
+
 
                 <Container maxWidth="md" component="main">
                     <Grid container sx={{justifyContent: 'center'}} spacing={5} alignItems="flex-end">
@@ -121,13 +114,17 @@ export default function Pricing() {
 
                                     <Card
                                         sx={{
-                                            borderRadius: '25px',
+                                            borderRadius: '155px',
                                             border: '2px solid transparent',
                                             cursor: 'pointer',
-                                            minHeight: '236px',
+                                            minHeight: '270px',
+                                            width: '270px',
+                                            marginLeft:'35px',
                                             transition: 'border-color 0.3s ease',
                                             '&:hover': {
                                                 border: '2px solid goldenrod',
+                                                boxShadow: '5px 10px 30px rgba(255, 217, 0, 0.336)'
+
                                             },
                                             borderColor: index === selectedTier ? 'goldenrod' : 'transparent',
                                         }}
@@ -189,7 +186,7 @@ export default function Pricing() {
                         alignItems: 'center'
                     }}>
 
-                        <GlobalButton onClick={() => handleSelectedPlan(selectedTier || 0)} color="primary" sx={{
+                        <GlobalButton onClick={() => handleSelectedPlan(selectedTier || 0)} sx={{
                             marginTop: '16px',
                             display: 'flex',
                             fontSize: '20px',
@@ -201,6 +198,5 @@ export default function Pricing() {
                     </div>
                 </Container>
             </ThemeProvider>
-        </div>
     );
 }

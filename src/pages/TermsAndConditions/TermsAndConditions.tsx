@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Typography} from '@mui/material';
-import { useSpring, animated } from '@react-spring/web';
+import {useSpring, animated} from '@react-spring/web';
 
 const TermsAndConditionsPage: React.FC = () => {
     const fadeIn = useSpring({opacity: 1, from: {opacity: 0}, config: {duration: 500}});
@@ -13,7 +13,10 @@ const TermsAndConditionsPage: React.FC = () => {
         <div style={{
             padding: '20px', minHeight: '100vh',
             display: 'flex', flexDirection: 'column',
-            marginTop: '75px', textAlign: 'center'
+            marginTop: '75px', textAlign: 'center', backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+
         }}>
             <animated.div style={fadeIn}>
 

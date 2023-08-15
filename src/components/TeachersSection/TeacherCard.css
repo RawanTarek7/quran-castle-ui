@@ -1,27 +1,30 @@
 .teacher-section {
     text-align: center;
+    width: 230px;
+    padding: 5px;
+    border-radius: 25px;
+        /*background-color: rgba(131, 105, 6, 0.06);*/
+        background-color:#EDEAE9;
+
 }
 
+/*.teacher-section:hover{*/
+/*    background-color: rgba(131, 105, 6, 0.06);*/
+/*}*/
+
 .teacher-profile {
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 .teacher-image {
-    width: 150px;
-    height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid goldenrod
 }
 
-.teacher-name {
-    margin-top: 10px;
-    font-size: 1.25rem;
-}
-
-.teacher-description {
-    margin-top: 10px;
-}
 
 .teachers-cards {
     display: flex;
@@ -31,4 +34,12 @@
 .first-column {
     margin-top: 100px;
     margin-right: 100px;
+}
+
+.teacher-profile:hover .teacher-image {
+    transform: scale(1.4);
+    transition: transform 0.3s ease-in-out;
+}
+.teacher-image {
+    transition: transform 0.3s ease-in-out;
 }

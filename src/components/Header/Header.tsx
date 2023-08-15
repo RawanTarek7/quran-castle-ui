@@ -1,24 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {AppBar, Toolbar, Box, Avatar} from '@mui/material';
+import {AppBar, Toolbar, Box, Link} from '@mui/material';
 import {useHistory} from 'react-router-dom';
 import {GlobalButton} from '../../assets/styles/GlobalButton';
-import {Menu, MenuItem} from '@mui/material';
 
 const Header = () => {
     const history = useHistory();
     const [isLogged, setIsLogged] = useState(false);
-    const [scrollBackground, setScrollBackground] = useState('black');
+    const [scrollBackground, setScrollBackground] = useState('white');
     const [prevScrollY, setPrevScrollY] = useState(0);
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
 
     const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
+setIsLogged(false)
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
@@ -40,7 +34,7 @@ const Header = () => {
     useEffect(() => {
         const handleScrollUp = () => {
             if (window.scrollY < prevScrollY) {
-                setScrollBackground('black');
+                setScrollBackground('white');
             }
             setPrevScrollY(window.scrollY);
         };
@@ -67,64 +61,61 @@ const Header = () => {
                     />
                 </Box>
 
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: '25px',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Link sx={{
+                        color: 'goldenrod',
+                        '&:hover': {
+                            textDecoration: 'underline'
+                        }
+                    }} underline='none' href="/user-profile">
+                        Profile
+                    </Link>
+                    <Link sx={{
+                        color: 'goldenrod',
+                        '&:hover': {
+                            textDecoration: 'underline'
+                        }
+                    }} underline='none' href="/plans">
+                        Plans
+                    </Link>
+                    <Link sx={{
+                        color: 'goldenrod',
+                        '&:hover': {
+                            textDecoration: 'underline'
+                        }
+                    }} underline='none' href="/about-teachers">
+                        About Teachers
+                    </Link>
+
+                </div>
+
+
                 {isLogged ? (
-                    <div>
-                        <Avatar
-                            onClick={handleAvatarClick}
-                            style={{marginLeft: '15px', marginRight: '15px', cursor: 'pointer'}}
-                            src="/broken-image.jpg"
-                        />
-                        <Menu
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleMenuClose}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <MenuItem
-                                onClick={() => {
-                                    history.push('/user-profile');
-                                    handleMenuClose();
-                                }}
-                            >
-                                Profile
-                            </MenuItem>
-                            <MenuItem onClick={() => {
-                                setIsLogged(false)
-                                handleMenuClose()
-                            }}
-                            >Logout</MenuItem>
-                        </Menu>
-                    </div>
-                ) : (
-                    <div style={{display: 'flex', flexDirection: 'row', gap: '20px'}}>
-                        <GlobalButton
-                            sx={{
-                                backgroundColor: 'black',
-                                color: 'goldenrod',
-                                border: '1px solid goldenrod',
-                                '&:hover': {
-                                    backgroundColor: 'goldenrod',
-                                    color: 'black',
-                                    borderColor: 'black',
-                                },
-                            }}
-                            onClick={() => history.push('/plans')}
-                        >
-                            Subscribe
-                        </GlobalButton>
-                        <GlobalButton onClick={() => history.push('/auth')}>Sign In</GlobalButton>
-                    </div>
-                )}
-            </Toolbar>
-        </AppBar>
-    );
+
+                      <div style={{display:'flex',flexDirection:'row'}}>
+                        <img
+                        onClick={handleAvatarClick}
+                        style={{marginLeft: '15px', marginRight: '15px', cursor: 'pointer'}}
+                        src={process.env.PUBLIC_URL + '/images/logout.png'}
+                        height='35px'
+                        alt="Exit"
+                    />
+                      </div>
+                    ) : (
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '20px', marginLeft: '25px'}}>
+                <GlobalButton onClick={() => history.push('/auth')}>Sign In</GlobalButton>
+            </div>
+            )}
+        </Toolbar>
+</AppBar>
+)
+    ;
 };
 
 export default Header;

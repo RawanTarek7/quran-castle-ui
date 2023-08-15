@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TeacherProfileForm from "./TeacherProfileForm"; // Adjust the import path based on your project structure
 
 const TeacherProfile: React.FC = () => {
-    // Define the teacher data
     const teacherData = {
         username: 'teacher123',
         fullName: 'John Teacher',
@@ -12,11 +11,15 @@ const TeacherProfile: React.FC = () => {
         address: '456 Main St',
         nationality: 'American',
         country: 'United States',
-        city: 'Cityville',
+        city: 'City ville',
         gender: 'Male',
         age: 40,
         payoneerAccountNo: '9876543210987654',
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div

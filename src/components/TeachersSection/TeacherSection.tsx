@@ -43,17 +43,18 @@ const TeacherSection = () => {
     }, []);
 
     return (
-        <div className={`teacher-section-content ${contentVisible ? 'show' : ''}`}>
+        <div style={{height:'100vh'}} className={`teacher-section-content ${contentVisible ? 'show' : ''}`}>
+           <Typography variant='h3'>About Our Teachers</Typography>
             <div className="centered-card-container">
                 {teacherData.map((teacher, index) => (
-                    <Card key={index} elevation={3}
-                          style={{borderRadius: '35px'}}
+                    <Card key={index}
+                          style={{borderRadius: '35px',backgroundColor:'transparent'}}
                           className="teacher-card">
                         <CardContent style={{
                             display: 'flex',
                             flexDirection: 'column',
-                            alignItems: 'center', // Center content horizontally
-                            justifyContent: 'center', // Center content vertically
+                            alignItems: 'center',
+                            justifyContent: 'center',
                         }}>
                             <Typography
                                 style={{

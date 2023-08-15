@@ -6,17 +6,26 @@
 }
 
 .teachers-section {
-    background-color: black;
-    padding-bottom: 200px;
+    padding-bottom: 10px;
     display: flex;
-    padding-left: 30px;
     flex-direction: column;
 }
 .features-section {
     padding-top: 120px;
-    background-color: black;
     padding-bottom: 160px;
     display: flex;
     padding-left: 30px;
     flex-direction: column;
+    background-color: goldenrod;
+}
+.hero-section{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../public/images/hero-img.jpeg');
+}
+.plans-section{
+    background-color: #A7C9EC;
+}
+.about-section{
+    margin-bottom: 120px;
 }
