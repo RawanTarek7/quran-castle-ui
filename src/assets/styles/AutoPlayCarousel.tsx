@@ -7,18 +7,18 @@ import './AutoPlayCarousel.css'
 const responsive = {
     desktop: {
         breakpoint: {max: 3000, min: 1024},
-        items: 5,
-        slidesToSlide: 4 // optional, default to 1.
+        items: 4,
+        slidesToSlide: 2
     },
     tablet: {
         breakpoint: {max: 1024, min: 768},
         items: 3,
-        slidesToSlide: 3 // optional, default to 1.
+        slidesToSlide: 3
     },
     mobile: {
         breakpoint: {max: 767, min: 464},
         items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        slidesToSlide: 1
     }
 };
 
@@ -126,7 +126,7 @@ const Slider = () => {
             >
                 {teachers.map((teacher, index) => {
                     return (
-                        <div style={{padding: '45px',cursor:'pointer'}} className="slider" key={index}>
+                        <div style={{padding: '45px', cursor: 'pointer'}} className="slider" key={index}>
                             <TeacherCard teacherName={teacher.teacherName} teacherGender={teacher.teacherAge}
                                          teacherAge={teacher.teacherAge}
                                          description={teacher.description}></TeacherCard>

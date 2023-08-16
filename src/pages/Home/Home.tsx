@@ -3,7 +3,7 @@ import './Home.css';
 import Hero from '../../components/Hero/Hero';
 import AboutSection from '../../components/AboutSection/AboutSection';
 import ContactUs from '../../components/ContactUs/ContactUS';
-import {Typography, Box} from '@mui/material'; // Import Box component for applying responsive styles
+import {Typography, Box} from '@mui/material';
 import Features from '../Features/Features';
 import Plans from "../Plans/Plans";
 import Slider from "../../assets/styles/AutoPlayCarousel";
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         marginBottom: '30px',
-                        paddingTop: {xs: '250px', md: '35px'} // Use responsive values with the `sx` prop
+                        paddingTop: {xs: '0', md: '35px'} // Use responsive values with the `sx` prop
                     }}
                 >
                     <Typography variant="h3">

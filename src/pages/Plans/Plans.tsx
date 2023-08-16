@@ -9,7 +9,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Box from '@mui/material/Box';
-import GlobalStyles from '@mui/material/GlobalStyles';
 import {GlobalButton} from "../../assets/styles/GlobalButton";
 import {useSpring, animated} from '@react-spring/web';
 import './plans.css'
@@ -81,122 +80,117 @@ export default function Pricing() {
 
 
     return (
-            <ThemeProvider theme={defaultTheme}>
-                <GlobalStyles styles={{ul: {margin: 0, padding: 0, listStyle: 'none'}}}/>
-                <CssBaseline/>
+        <ThemeProvider theme={defaultTheme}>
+            <CssBaseline/>
 
-                <Container disableGutters maxWidth="sm" component="main" sx={{pt: 8, pb: 6}}>
-                    <animated.div style={fadeIn}>
+            <animated.div style={fadeIn}>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    paddingTop: '80px',
+                    marginBottom: '50px'
+                }}>
+                    <Typography
+                        variant="h3"
+                    >
+                        Plans
+                    </Typography>
+                </div>
+            </animated.div>
 
-                        <Typography
-                            variant="h3"
-                            align="center"
-                            color="text.primary"
-                            gutterBottom
+
+            <Container>
+                <Grid container sx={{justifyContent: 'center', marginTop: '75p'}} spacing={5}>
+                    {tiers.map((tier, index) => (
+                        <Grid
+                            item
+                            key={tier.title}
+                            // xs={12}
+                            // sm={tier.title === 'Enterprise' ? 12 : 6}
+                            // md={4}
                         >
-                            Plans
-                        </Typography>
-                    </animated.div>
-                </Container>
+                            <animated.div style={slideUp}>
 
+                                <Card
+                                    sx={{
+                                        borderRadius: '155px',
+                                        border: '2px solid transparent',
+                                        cursor: 'pointer',
+                                        minHeight: '270px',
+                                        width: '270px',
+                                        transition: 'border-color 0.3s ease',
+                                        '&:hover': {
+                                            border: '2px solid goldenrod',
+                                            boxShadow: '5px 10px 30px rgba(255, 217, 0, 0.336)'
 
-                <Container maxWidth="md" component="main">
-                    <Grid container sx={{justifyContent: 'center'}} spacing={5} alignItems="flex-end">
-                        {tiers.map((tier, index) => (
-                            <Grid
-                                item
-                                key={tier.title}
-                                xs={12}
-                                sm={tier.title === 'Enterprise' ? 12 : 6}
-                                md={4}
-                            >
-                                <animated.div style={slideUp}>
-
-                                    <Card
-                                        sx={{
-                                            borderRadius: '155px',
-                                            border: '2px solid transparent',
-                                            cursor: 'pointer',
-                                            minHeight: '270px',
-                                            width: '270px',
-                                            marginLeft:'35px',
-                                            transition: 'border-color 0.3s ease',
-                                            '&:hover': {
-                                                border: '2px solid goldenrod',
-                                                boxShadow: '5px 10px 30px rgba(255, 217, 0, 0.336)'
-
-                                            },
-                                            borderColor: index === selectedTier ? 'goldenrod' : 'transparent',
+                                        },
+                                        borderColor: index === selectedTier ? 'goldenrod' : 'transparent',
+                                    }}
+                                    onClick={() => onSelectPlan(index)}
+                                >
+                                    <CardHeader
+                                        title={tier.title}
+                                        titleTypographyProps={{align: 'center'}}
+                                        action={tier.title === 'Pro' ? <StarIcon/> : null}
+                                        subheaderTypographyProps={{
+                                            align: 'center',
                                         }}
-                                        onClick={() => onSelectPlan(index)}
-                                    >
-                                        <CardHeader
-                                            title={tier.title}
-                                            titleTypographyProps={{align: 'center'}}
-                                            action={tier.title === 'Pro' ? <StarIcon/> : null}
-                                            subheaderTypographyProps={{
-                                                align: 'center',
-                                            }}
+                                        sx={{
+                                            backgroundColor: (theme) =>
+                                                theme.palette.mode === 'light'
+                                                    ? theme.palette.grey[200]
+                                                    : theme.palette.grey[700],
+                                        }}
+                                    />
+                                    <CardContent>
+                                        <Box
                                             sx={{
-                                                backgroundColor: (theme) =>
-                                                    theme.palette.mode === 'light'
-                                                        ? theme.palette.grey[200]
-                                                        : theme.palette.grey[700],
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'baseline',
+                                                mb: 2,
                                             }}
-                                        />
-                                        <CardContent>
-                                            <Box
-                                                sx={{
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'baseline',
-                                                    mb: 2,
-                                                }}
-                                            >
-                                                <Typography component="h2" variant="h3" color="text.primary">
-                                                    {tier.price} {tier.price === 'Customize' ? '' : 'EGP'}
-                                                </Typography>
-                                                <Typography variant="h6" color="text.secondary">
-                                                    {tier.price === 'Customize' ? '' : '/mo'}
-                                                </Typography>
-                                            </Box>
-                                            <ul>
-                                                {tier.description.map((line) => (
-                                                    <Typography
-                                                        component="li"
-                                                        variant="subtitle1"
-                                                        align="center"
-                                                        key={line}
-                                                    >
-                                                        {line}
-                                                    </Typography>
-                                                ))}
-                                            </ul>
-                                        </CardContent>
-                                    </Card>
-                                </animated.div>
-                            </Grid>
-                        ))}
-                    </Grid>
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '35px',
-                        paddingBottom: '35px',
-                        alignItems: 'center'
-                    }}>
+                                        >
+                                            <Typography style={{marginTop: '20px'}} variant="h4">
+                                                {tier.price} {tier.price === 'Customize' ? '' : 'EGP'}
+                                            </Typography>
+                                            <Typography variant="h6" color="text.secondary">
+                                                {tier.price === 'Customize' ? '' : '/mo'}
+                                            </Typography>
+                                        </Box>
+                                        <Typography
+                                            variant="subtitle1"
+                                            align="center"
+                                            style={{maxLines: '2'}}
+                                        >
+                                            {tier.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </animated.div>
+                        </Grid>
+                    ))}
+                </Grid>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '35px',
+                    paddingBottom: '35px',
+                    alignItems: 'center'
+                }}>
 
-                        <GlobalButton onClick={() => handleSelectedPlan(selectedTier || 0)} sx={{
-                            marginTop: '16px',
-                            display: 'flex',
-                            fontSize: '20px',
-                            width: '350px',
-                            justifyContent: 'center',
-                        }}>
-                            {customizedPlan ? 'Request' : 'Subscribe'}
-                        </GlobalButton>
-                    </div>
-                </Container>
-            </ThemeProvider>
+                    <GlobalButton onClick={() => handleSelectedPlan(selectedTier || 0)} sx={{
+                        marginTop: '16px',
+                        display: 'flex',
+                        fontSize: '18px',
+                        justifyContent: 'center',
+                    }}>
+                        {customizedPlan ? 'Request' : 'Subscribe'}
+                    </GlobalButton>
+                </div>
+            </Container>
+        </ThemeProvider>
     );
 }
